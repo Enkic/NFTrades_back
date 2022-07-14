@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  mongo-NFTTrades:
+    image: mongo:latest
+    container_name: 'NFTrades'
+    restart: 'no'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=enki
+      - MONGO_INITDB_ROOT_PASSWORD=adMjdjd92jd21!ohPaN9Ja1mnU5j4ff8ja
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - mongo-data:/data/db/
+    ports:
+      - '27011:27017'
+
+volumes:
+  mongo-data:
